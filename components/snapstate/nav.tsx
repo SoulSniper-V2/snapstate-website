@@ -59,7 +59,7 @@ export function Nav() {
           ))}
 
           <a
-            href="https://github.com/SoulSniper-V2/SnapState/releases/download/v2.3.3/SnapState.dmg"
+            href="https://github.com/SoulSniper-V2/SnapState/releases/download/v2.3.4/SnapState.dmg"
             style={{
               borderRadius: 6,
               border: "1px solid rgba(255,255,255,0.12)",

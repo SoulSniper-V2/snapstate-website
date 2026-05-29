@@ -96,7 +96,7 @@ export function Hero() {
           }}
         >
           <a
-            href="https://github.com/SoulSniper-V2/SnapState/releases/download/v2.3.0/SnapState.dmg"
+            href="https://github.com/SoulSniper-V2/SnapState/releases/download/v2.3.1/SnapState.dmg"
             style={{
               display: "inline-flex",
               alignItems: "center",

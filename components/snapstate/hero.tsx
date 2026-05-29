@@ -28,8 +28,29 @@ export function Hero() {
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
+          position: "relative",
         }}
       >
+        {/* ─── Glowing Ambient Orb ─── */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "80vw",
+            height: "50vh",
+            maxWidth: "800px",
+            maxHeight: "400px",
+            transform: "translate(-50%, -50%)",
+            background: "radial-gradient(ellipse at center, rgba(120,119,198,0.15) 0%, rgba(255,255,255,0) 70%)",
+            filter: "blur(60px)",
+            pointerEvents: "none",
+            zIndex: 0,
+            /* entrance animation */
+            opacity: mounted ? 1 : 0,
+            transition: "opacity 1.5s ease-in-out",
+          }}
+        />
         {/* ─── Headline ─── */}
         <h1
           style={{
@@ -102,16 +123,22 @@ export function Hero() {
               alignItems: "center",
               gap: 8,
               borderRadius: 8,
-              background: "#fff",
+              background: "linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%)",
+              boxShadow: "0 1px 2px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8)",
+              border: "1px solid #d9d9d9",
               padding: "10px 20px",
               fontSize: 13,
               fontWeight: 600,
               color: "#000",
               textDecoration: "none",
-              transition: "background 0.15s",
+              transition: "all 0.15s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#e5e5e5")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#fff")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "linear-gradient(180deg, #f2f2f2 0%, #d9d9d9 100%)"
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "linear-gradient(180deg, #ffffff 0%, #e6e6e6 100%)"
+            }}
           >
             <ArrowDownToLine style={{ width: 14, height: 14 }} strokeWidth={2.5} />
             Download for macOS
@@ -124,22 +151,23 @@ export function Hero() {
               alignItems: "center",
               gap: 8,
               borderRadius: 8,
-              border: "1px solid rgba(255,255,255,0.12)",
-              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              background: "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
               padding: "10px 20px",
               fontSize: 13,
               fontWeight: 600,
               color: "#ccc",
               textDecoration: "none",
-              transition: "border-color 0.15s, background 0.15s",
+              transition: "all 0.15s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"
-              e.currentTarget.style.background = "rgba(255,255,255,0.05)"
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"
+              e.currentTarget.style.background = "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)"
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"
-              e.currentTarget.style.background = "rgba(255,255,255,0.02)"
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"
+              e.currentTarget.style.background = "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)"
             }}
           >
             <Github style={{ width: 14, height: 14 }} strokeWidth={1.8} />

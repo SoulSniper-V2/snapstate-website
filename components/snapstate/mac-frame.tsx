@@ -311,11 +311,11 @@ export function MacFrame() {
                   width: 310,
                   userSelect: "none",
                   borderRadius: 12,
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  background: "rgba(30,30,30,0.80)",
-                  backdropFilter: "blur(24px)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)",
+                  background: "linear-gradient(180deg, rgba(40,40,42,0.85) 0%, rgba(20,20,22,0.85) 100%)",
+                  backdropFilter: "blur(24px) saturate(150%)",
                   padding: "12px 14px",
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.6)",
                 }}
               >
                 {/* Header */}

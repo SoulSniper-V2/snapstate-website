@@ -43,6 +43,18 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} bg-black`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.va = window.va || function () { 
+                (window.vaq = window.vaq || []).push(arguments); 
+              };
+            `,
+          }}
+        />
+        <script defer src="/_vercel/insights/script.js" />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

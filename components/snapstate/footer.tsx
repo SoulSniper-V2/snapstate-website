@@ -13,7 +13,9 @@ export function Footer() {
           </a>
         </div>
 
-        <p className="font-mono text-xs text-neutral-600">Engineered by Arush, age 15</p>
+        <p className="font-mono text-xs text-neutral-600">
+          Engineered by <a href="https://arushw.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-neutral-300">Arush</a>, age 15
+        </p>
       </div>
     </footer>
   )

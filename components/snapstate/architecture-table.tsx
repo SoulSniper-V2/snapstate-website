@@ -5,7 +5,7 @@ const rows = [
     num: "01",
     label: "Window Mutations",
     detail:
-      "Leverages low-level AXUIElementSetAttributeValue system calls to programmatically inject kAXPositionAttribute and kAXSizeAttribute directly onto target window targets.",
+      "Leverages low-level AXUIElementSetAttributeValue system calls to programmatically inject kAXPositionAttribute and kAXSizeAttribute directly onto target windows.",
   },
   {
     num: "02",

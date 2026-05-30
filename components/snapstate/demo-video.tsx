@@ -1,6 +1,6 @@
 export function DemoVideo() {
   return (
-    <section className="relative w-full max-w-6xl mx-auto px-4 py-16 sm:py-24 z-10">
+    <section className="relative w-full max-w-6xl mx-auto px-4 pt-16 sm:pt-24 pb-4 sm:pb-8 z-10">
       <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
         <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
           See it in action

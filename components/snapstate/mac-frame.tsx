@@ -71,39 +71,17 @@ export function MacFrame() {
 
   // Entrance animation stages
   const [stage, setStage] = useState(0) // 0 = hidden, 1 = border glint, 2 = content visible
-  const [cursorState, setCursorState] = useState({ x: 100, y: 100, opacity: 0, scale: 1, isHoveringDev: false })
 
   useEffect(() => {
     // 1. Entrance animations
     const t1 = setTimeout(() => setStage(1), 200)   // border appears
     const t2 = setTimeout(() => setStage(2), 900)  // content fades in
     
-    // 2. Attract Mode Sequence
-    // Open popover
+    // 2. Open popover after entrance
     const t3 = setTimeout(() => setPopoverOpen(true), 1600)
-    
-    // Move cursor in
-    const t4 = setTimeout(() => setCursorState({ x: 230, y: 110, opacity: 1, scale: 1, isHoveringDev: false }), 2000)
-    
-    // Hover on "dev" button
-    const t5 = setTimeout(() => setCursorState({ x: 230, y: 110, opacity: 1, scale: 1, isHoveringDev: true }), 2600)
-    
-    // Click!
-    const t6 = setTimeout(() => {
-      setCursorState(p => ({ ...p, scale: 0.9 }))
-      setActiveId("dev")
-    }, 3200)
-    
-    // Release click
-    const t7 = setTimeout(() => setCursorState(p => ({ ...p, scale: 1 })), 3400)
-    
-    // Hide cursor and unlock
-    const t8 = setTimeout(() => {
-      setCursorState(p => ({ ...p, opacity: 0, isHoveringDev: false }))
-    }, 4000)
 
     return () => { 
-      [t1, t2, t3, t4, t5, t6, t7, t8].forEach(clearTimeout) 
+      [t1, t2, t3].forEach(clearTimeout) 
     }
   }, [])
 
@@ -382,21 +360,21 @@ export function MacFrame() {
                           padding: 10,
                           textAlign: "left",
                           cursor: "pointer",
-                          border: isActive || (cursorState.isHoveringDev && w.id === "dev") ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.03)",
-                          background: isActive || (cursorState.isHoveringDev && w.id === "dev") ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.03)",
+                          border: isActive ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0.03)",
+                          background: isActive ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.03)",
                           color: "#fff",
                           outline: "none",
                           transition: "all 0.15s ease",
                           fontFamily: "inherit",
                         }}
                         onMouseEnter={(e) => {
-                          if (!isActive && !(cursorState.isHoveringDev && w.id === "dev")) {
+                          if (!isActive) {
                             e.currentTarget.style.background = "rgba(255,255,255,0.06)"
                             e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"
                           }
                         }}
                         onMouseLeave={(e) => {
-                          if (!isActive && !(cursorState.isHoveringDev && w.id === "dev")) {
+                          if (!isActive) {
                             e.currentTarget.style.background = "rgba(255,255,255,0.03)"
                             e.currentTarget.style.borderColor = "rgba(255,255,255,0.03)"
                           }
@@ -426,24 +404,6 @@ export function MacFrame() {
                 </div>
               </div>
             )}
-            
-            {/* Fake Cursor for Attract Mode */}
-            <div
-              style={{
-                position: "absolute",
-                top: cursorState.y,
-                right: cursorState.x,
-                opacity: cursorState.opacity,
-                transform: `scale(${cursorState.scale})`,
-                transition: "all 0.6s cubic-bezier(0.25,1,0.5,1), transform 0.1s ease",
-                zIndex: 100,
-                pointerEvents: "none"
-              }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.5 3.21V20.8C5.5 21.45 6.27 21.8 6.75 21.36L11.44 17.06H17.5C18.05 17.06 18.5 16.61 18.5 16.06V15.93L5.5 3.21Z" fill="black" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
-              </svg>
-            </div>
           </div>
         </div>
       </div>

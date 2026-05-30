@@ -5,6 +5,8 @@ import { SpecsGrid } from "@/components/snapstate/specs-grid"
 import { ArchitectureTable } from "@/components/snapstate/architecture-table"
 import { Footer } from "@/components/snapstate/footer"
 
+import { DemoVideo } from "@/components/snapstate/demo-video"
+
 export default function Page() {
   return (
     <main className="relative min-h-screen bg-[#0A0A0A] text-neutral-100 overflow-x-hidden">
@@ -23,7 +25,8 @@ export default function Page() {
       </div>
 
       {/* ─── Below the fold ─── */}
-      <div className="mt-32 md:mt-48">
+      <div className="mt-24 md:mt-32">
+        <DemoVideo />
         <SpecsGrid />
         <ArchitectureTable />
         <Footer />

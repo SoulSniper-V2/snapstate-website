@@ -25,7 +25,7 @@ export default function Page() {
       </div>
 
       {/* ─── Below the fold ─── */}
-      <div className="mt-24 md:mt-32">
+      <div className="mt-12 md:mt-16">
         <DemoVideo />
         <SpecsGrid />
         <ArchitectureTable />
